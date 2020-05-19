@@ -1,0 +1,28 @@
+The prime factors of 13195 are 5, 7, 13 and 29.
+
+What is the largest prime factor of the number 600851475143 ?
+
+
+
+def gcd(a, b):  # calculates the GDC between two numbers using Euclid algorithm
+    if a == 0 : 
+        return b  
+    return gcd(b%a, a)
+
+def isprime(n): # checks if prime number
+    for i in range(2, int(n**0.5)+1):
+        if n % i == 0:
+            return False
+
+    return True            
+        
+def phi(x):
+    factors = []
+    prime = []
+    for i in range (1,x):
+        if gcd(x,i) != 1:
+            factors.append(i)
+    for j in factors:
+        if isprime(j) == True:
+            prime.append(j)
+    return (prime)
